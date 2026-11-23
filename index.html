@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Iqra University</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--ink:#14213d;--mute:#51607a;--brand:#1b3a8a;--brand2:#2f5fd0;--gold:#f2b705;--line:#dde4f0;--onbrand:#fff;--hero1:#10265f;--hero2:#2f5fd0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--card:#151d31;--ink:#eef2fb;--mute:#a7b3cc;--brand:#8fb0ff;--brand2:#5b86f0;--line:#27324d;--onbrand:#0c1220;--hero1:#0a1431;--hero2:#1d3f94;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1220;--card:#151d31;--ink:#eef2fb;--mute:#a7b3cc;--brand:#8fb0ff;--brand2:#5b86f0;--line:#27324d;--onbrand:#0c1220;--hero1:#0a1431;--hero2:#1d3f94;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5rem}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}h3{font-size:1.15rem}
+p{margin:0 0 1rem}a{color:var(--brand2)}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+section{padding:clamp(3rem,7vw,5rem) 0}
+.sub{color:var(--mute);max-width:62ch}
+.eyebrow{display:inline-block;font:600 .8rem/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--brand2);margin-bottom:.75rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:.7rem 1rem;z-index:100}.skip:focus{left:.5rem;top:.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;min-height:46px;padding:.65rem 1.3rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn-gold{background:var(--gold);color:#1a1300}.btn-line{border-color:currentColor;color:inherit;background:transparent}.btn-brand{background:var(--brand);color:var(--onbrand)}
+.alert{background:#0b1c4d;color:#fff;font-size:.92rem;padding:.55rem 0}.alert .wrap{display:flex;gap:1rem;justify-content:space-between;align-items:center}
+.alert a{color:var(--gold);font-weight:600}.alert button{background:none;border:0;color:#fff;font-size:1.3rem;cursor:pointer;min-width:44px;min-height:44px}
+.util{background:var(--card);border-bottom:1px solid var(--line);font-size:.88rem}
+.util .wrap{display:flex;flex-wrap:wrap;gap:.25rem 1.2rem;align-items:center;padding:.25rem 0}
+.util a,.util button{color:var(--ink);text-decoration:none;padding:.45rem 0;background:none;border:0;font:inherit;cursor:pointer}.util a:hover{color:var(--brand2)}
+.util .sp{margin-left:auto}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(10,20,50,.08)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px}
+.logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);font:700 1.25rem Fraunces,serif}
+.logo span.m{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--brand);color:var(--onbrand)}
+.logo small{display:block;font:500 .7rem Inter;letter-spacing:.1em;color:var(--mute)}
+nav ul{list-style:none;margin:0;padding:0}
+#menu{display:flex;gap:.2rem}
+#menu>li{position:relative}
+#menu>li>a,#menu>li>button{display:block;padding:.7rem .8rem;min-height:44px;background:none;border:0;color:var(--ink);font:500 .95rem Inter;text-decoration:none;cursor:pointer;border-radius:8px}
+#menu>li>button::after{content:" ▾";font-size:.7em}
+#menu>li>a:hover,#menu>li>button:hover{background:var(--bg)}
+#menu li ul{display:none;position:absolute;left:0;top:100%;min-width:250px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.5rem;box-shadow:0 14px 34px rgba(10,20,50,.18)}
+#menu li.open ul{display:block}
+#menu li ul a{display:block;padding:.55rem .75rem;color:var(--ink);text-decoration:none;border-radius:8px;font-size:.93rem}#menu li ul a:hover{background:var(--bg);color:var(--brand2)}
+.burger{display:none;min-width:46px;min-height:46px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.3rem;cursor:pointer}
+@media(max-width:1020px){.burger{display:block}#menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);flex-direction:column;padding:.5rem 1rem 1rem;border-bottom:1px solid var(--line);max-height:75vh;overflow:auto}
+#menu.show{display:flex}#menu li ul{position:static;box-shadow:none;border:0;padding:0 0 0 .8rem}.util .sp{margin-left:0}}
+.hero{background:radial-gradient(circle at 85% 10%,rgba(242,183,5,.25),transparent 40%),linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:clamp(3.5rem,9vw,7rem) 0 0;position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:.25rem 0 1rem}
+.hero p.lead{font-size:1.15rem;max-width:56ch;color:#e3eaff}
+.pill{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:.4rem 1rem;border-radius:999px;font-weight:600;font-size:.9rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+.crest{aspect-ratio:1;max-width:340px;margin-inline:auto;border-radius:50%;background:conic-gradient(from 200deg,rgba(255,255,255,.18),rgba(242,183,5,.5),rgba(255,255,255,.1));display:grid;place-items:center;font:700 5rem Fraunces,serif;box-shadow:inset 0 0 0 14px rgba(255,255,255,.07)}
+.crest small{display:block;font:600 .8rem Inter;letter-spacing:.2em;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.2);margin-top:3.5rem;border-radius:18px 18px 0 0;overflow:hidden}
+.stats div{background:rgba(8,18,52,.55);padding:1.4rem;text-align:center}
+.stats b{display:block;font:700 2.2rem Fraunces,serif;color:var(--gold)}
+@media(max-width:800px){.hero .grid{grid-template-columns:1fr}.crest{max-width:200px;font-size:3rem;order:-1}}
+.trio{display:flex;justify-content:center;align-items:flex-end}
+.trio figure{margin:0 -14px;width:34%;max-width:170px;border-radius:20px;overflow:hidden;border:4px solid rgba(255,255,255,.85);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.trio figure:nth-child(2){transform:translateY(-22px);z-index:2}
+.trio svg,.trio img,.gal svg,.gal img{display:block;width:100%;height:auto;aspect-ratio:5/6;object-fit:cover}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:2rem}
+.gal figure{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.gal figcaption{padding:.7rem 1rem;font-weight:600;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.chips button{min-height:44px;padding:.5rem 1.2rem;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 .92rem Inter,sans-serif;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--brand);color:var(--onbrand);border-color:var(--brand)}
+.cx{display:grid;grid-template-columns:1.3fr 1fr;gap:1.2rem;margin-top:1.5rem;align-items:start}
+.feat{border-radius:24px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 30px rgba(10,20,50,.1)}
+.feat .art{background:linear-gradient(180deg,var(--hero2),var(--hero1));height:240px;display:flex;align-items:flex-end;justify-content:center}
+.feat .art svg{height:100%;width:auto}
+.feat .in{padding:1.5rem}
+.clist{display:flex;flex-direction:column;gap:.6rem}
+.clist button{text-align:left;display:flex;gap:.8rem;align-items:center;padding:.7rem 1rem;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer;min-height:58px}
+.clist button:hover{border-color:var(--brand2)}
+.clist button[aria-current=true]{border-color:var(--brand2);box-shadow:0 0 0 3px rgba(47,95,208,.22)}
+.clist small{display:block;color:var(--mute)}
+@media(max-width:860px){.cx{grid-template-columns:1fr}.feat .art{height:190px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.5rem;box-shadow:0 4px 18px rgba(10,20,50,.05)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:2rem}
+.lift{transition:transform .25s,box-shadow .25s}.lift:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(10,20,50,.14)}
+.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--bg);font-size:1.6rem;margin-bottom:1rem}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
+select,input[type=email]{width:100%;min-height:46px;padding:.6rem .8rem;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--brand2);background:var(--bg);padding:.2rem .7rem;border-radius:999px;margin-bottom:.6rem}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.band{background:var(--card);border-block:1px solid var(--line)}
+.advisor{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:2rem;background:linear-gradient(120deg,var(--hero1),var(--hero2));color:#fff;border-radius:20px;padding:1.6rem 2rem}
+.advisor h3{margin:0}.advisor p{margin:0;color:#dfe8ff}
+.rank b{display:block;font:700 1.9rem Fraunces,serif;color:var(--brand2)}
+.promo{background:linear-gradient(120deg,#0b1c4d,#2f5fd0);color:#fff;border-radius:24px;padding:clamp(1.6rem,4vw,3rem)}
+.promo p{color:#e3eaff}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-top:2rem}
+.nums div{text-align:center;padding:1.4rem;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.nums b{display:block;font:700 2.1rem Fraunces,serif;color:var(--brand2)}
+.camp h3{margin-bottom:.2rem}.camp .addr{font-size:.9rem;color:var(--mute)}
+.camp .top{height:8px;border-radius:8px;background:linear-gradient(90deg,var(--brand2),var(--gold));margin:-.5rem 0 1rem}
+blockquote{margin:0 0 1rem;font-style:italic}
+.who{display:flex;align-items:center;gap:.8rem}.av{width:46px;height:46px;border-radius:50%;background:var(--brand);color:var(--onbrand);display:grid;place-items:center;font-weight:700;flex:none}
+.who small{display:block;color:var(--mute)}
+.news time{font-size:.82rem;color:var(--mute)}
+.news h3 a{color:var(--ink);text-decoration:none}.news h3 a:hover{color:var(--brand2);text-decoration:underline}
+.quick a{display:block;text-decoration:none;color:var(--ink);height:100%}
+.quick a:hover h3{color:var(--brand2)}
+.help{background:var(--hero1);color:#fff}
+.help .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);box-shadow:none}.help a{color:var(--gold)}
+.final{text-align:center}
+.final form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;max-width:520px;margin:1.2rem auto 0}.final form div{flex:1;min-width:220px;text-align:left}
+footer{background:#08112b;color:#c8d3ee;padding:3rem 0 2rem;font-size:.93rem}
+footer .g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}footer h2{font:600 1rem Inter;color:#fff}
+footer a{color:#c8d3ee;text-decoration:none;display:block;padding:.25rem 0}footer a:hover{color:var(--gold);text-decoration:underline}
+footer .soc{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}footer .soc a{display:inline-block}
+@media(max-width:800px){footer .g{grid-template-columns:1fr}}
+.hide{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* Compact interactive content + motion */
+:root{--motion:220ms}
+@media(prefers-reduced-motion:no-preference){
+  .reveal{animation:fadeUp .55s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  .accordion-content{transition:grid-template-rows .28s ease,opacity .22s ease}
+  .lift,.btn,#menu li ul a,.chips button,.clist button{transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease}
+}
+.compact-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;text-align:left;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:600 1rem Inter,system-ui;cursor:pointer}
+.compact-toggle:hover{border-color:var(--brand2);box-shadow:0 5px 18px rgba(10,20,50,.08)}
+.compact-toggle .chev{transition:transform .25s ease}
+.compact-toggle[aria-expanded=true] .chev{transform:rotate(180deg)}
+.accordion-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .3s ease,opacity .25s ease}
+.accordion-panel.open{grid-template-rows:1fr;opacity:1}
+.accordion-panel>div{overflow:hidden}
+.compact-section{margin:1.25rem 0}
+.compact-section> .compact-toggle + .accordion-panel > div{padding-top:1rem}
+
+
+/* Program finder upgrade */
+.finder-tools{margin:1.5rem 0 1.25rem;padding:1.25rem;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:0 8px 26px rgba(10,20,50,.06)}
+.finder-search{max-width:100%;margin-bottom:1rem}.search-wrap{display:flex;align-items:center;gap:.6rem;border:1.5px solid var(--line);border-radius:12px;padding:0 .85rem;background:var(--bg);transition:border-color .2s,box-shadow .2s}.search-wrap:focus-within{border-color:var(--brand2);box-shadow:0 0 0 3px rgba(47,95,208,.13)}.search-wrap span{font-size:1.45rem;color:var(--mute)}.search-wrap input{border:0;outline:0;background:transparent;min-height:48px;width:100%;color:var(--ink);font:inherit}.filters{margin-top:0;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.quick-filters{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}.quick-filters>span{font-size:.88rem;color:var(--mute);font-weight:600}.quick-filters button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:.45rem .8rem;min-height:38px;font:500 .86rem Inter;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}.quick-filters button:hover{transform:translateY(-1px);border-color:var(--brand2)}.quick-filters button[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:var(--onbrand)}.finder-status{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.2rem}.finder-status p{margin:0;color:var(--mute);font-size:.92rem}.clear-filters{background:none;border:0;color:var(--brand2);font:600 .9rem Inter;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.program-card{position:relative;display:flex;flex-direction:column;min-height:250px;animation:finderIn .35s ease both}
+
+/* Field-matched visual banners for program cards */
+.program-visual{height:132px;margin:-1.5rem -1.5rem 1.1rem;position:relative;overflow:hidden;border-radius:17px 17px 0 0;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+.program-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease,filter .3s}
+.program-card:hover .program-visual img{transform:scale(1.06)}
+.program-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,18,38,.58),rgba(8,18,38,.04) 70%)}
+.program-visual .visual-label{position:absolute;z-index:1;left:1rem;bottom:.75rem;color:white;font-weight:700;letter-spacing:.02em;text-shadow:0 1px 4px rgba(0,0,0,.35);font-size:.95rem}
+.program-visual .visual-icon{position:absolute;z-index:1;right:.9rem;top:.8rem;background:rgba(255,255,255,.86);width:38px;height:38px;display:grid;place-items:center;border-radius:50%;font-size:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.program-card{overflow:hidden}
+@media(max-width:600px){.program-visual{height:115px;margin:-1rem -1rem .9rem}.program-visual .visual-label{font-size:.85rem}}
+
+/* Field-specific program card backgrounds */
+.program-card.field-business{background:linear-gradient(145deg,#fff7df 0%,#fffdf7 78%);border-color:#ead59a}
+.program-card.field-technology{background:linear-gradient(145deg,#e2f5ff 0%,#f8fcff 78%);border-color:#a9d8ef}
+.program-card.field-media{background:linear-gradient(145deg,#f3e8ff 0%,#fffaff 78%);border-color:#d8b9f2}
+.program-card.field-law{background:linear-gradient(145deg,#fce8e5 0%,#fffafa 78%);border-color:#e8b8b0}
+.program-card.field-psychology{background:linear-gradient(145deg,#e4f7ec 0%,#f9fffb 78%);border-color:#b8dfc8}
+.program-card.field-health{background:linear-gradient(145deg,#ffe8ef 0%,#fffafd 78%);border-color:#efbdce}
+.program-card.field-education{background:linear-gradient(145deg,#e9edff 0%,#fbfcff 78%);border-color:#c1c9f4}
+.program-card.field-general{background:linear-gradient(145deg,#eef2f8 0%,#fff 78%);border-color:#d2dce9}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .program-card.field-business{background:linear-gradient(145deg,#46391c,#202031);border-color:#79652d}:root:not([data-theme="light"]) .program-card.field-technology{background:linear-gradient(145deg,#12394b,#1a2234);border-color:#28617b}:root:not([data-theme="light"]) .program-card.field-media{background:linear-gradient(145deg,#39244f,#1a2234);border-color:#67458a}:root:not([data-theme="light"]) .program-card.field-law{background:linear-gradient(145deg,#492925,#1a2234);border-color:#82514a}:root:not([data-theme="light"]) .program-card.field-psychology{background:linear-gradient(145deg,#1c4432,#1a2234);border-color:#356e50}:root:not([data-theme="light"]) .program-card.field-health{background:linear-gradient(145deg,#492b39,#1a2234);border-color:#855066}:root:not([data-theme="light"]) .program-card.field-education{background:linear-gradient(145deg,#252d54,#1a2234);border-color:#46558a}:root:not([data-theme="light"]) .program-card.field-general{background:linear-gradient(145deg,#252e40,#1a2234);border-color:#394a64}}
+:root[data-theme="dark"] .program-card.field-business{background:linear-gradient(145deg,#46391c,#202031);border-color:#79652d}:root[data-theme="dark"] .program-card.field-technology{background:linear-gradient(145deg,#12394b,#1a2234);border-color:#28617b}:root[data-theme="dark"] .program-card.field-media{background:linear-gradient(145deg,#39244f,#1a2234);border-color:#67458a}:root[data-theme="dark"] .program-card.field-law{background:linear-gradient(145deg,#492925,#1a2234);border-color:#82514a}:root[data-theme="dark"] .program-card.field-psychology{background:linear-gradient(145deg,#1c4432,#1a2234);border-color:#356e50}:root[data-theme="dark"] .program-card.field-health{background:linear-gradient(145deg,#492b39,#1a2234);border-color:#855066}:root[data-theme="dark"] .program-card.field-education{background:linear-gradient(145deg,#252d54,#1a2234);border-color:#46558a}:root[data-theme="dark"] .program-card.field-general{background:linear-gradient(145deg,#252e40,#1a2234);border-color:#394a64}
+.program-card h3{margin:.2rem 0 .6rem}.program-card .program-meta{display:flex;gap:.45rem;flex-wrap:wrap;margin:.3rem 0 .8rem}.program-card .program-meta span{border-radius:999px;background:var(--bg);padding:.3rem .6rem;font-size:.8rem;color:var(--mute)}.program-card .row{margin-top:auto;padding-top:1rem}.program-card .btn{flex:1;justify-content:center;min-width:120px}.program-empty{grid-column:1/-1;text-align:center;padding:2.5rem 1.5rem;border:1px dashed var(--line);border-radius:18px;background:var(--card)}.program-empty .ico{margin:0 auto 1rem}.program-empty p{color:var(--mute);max-width:45ch;margin:0 auto 1rem}.program-empty button{border:1px solid var(--brand2);color:var(--brand2);background:transparent;border-radius:999px;padding:.6rem 1rem;cursor:pointer;font:600 .9rem Inter}
+@keyframes finderIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.finder-tools{padding:1rem}.finder-status{align-items:flex-start}.quick-filters{gap:.4rem}.quick-filters button{font-size:.8rem;padding:.4rem .65rem}.program-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.program-card{animation:none}.quick-filters button{transition:none}}
+
+
+.photo-card{overflow:hidden;padding:0}.photo-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .45s ease}.photo-card:hover img{transform:scale(1.045)}.photo-card .photo-copy{padding:1.1rem 1.2rem}.photo-credit-note{font-size:.78rem;color:var(--mute);margin:.5rem 0 0}.feat .art{height:auto;position:relative;background:var(--hero1)}.feat .art img{width:100%;height:240px;object-fit:cover;display:block}.feat .art .photo-caption{position:absolute;left:1rem;bottom:.75rem;color:white;font-size:.78rem;background:rgba(8,18,52,.65);padding:.35rem .6rem;border-radius:999px}.clist button .campus-thumb{width:54px;height:42px;border-radius:9px;object-fit:cover;flex:none}.gal figure img{aspect-ratio:4/3;object-fit:cover;width:100%;display:block}.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.photo-grid .card{overflow:hidden;padding:0}.photo-grid img{width:100%;height:190px;object-fit:cover;display:block}.photo-grid .card .photo-copy{padding:1rem}.photo-source-note{border-left:3px solid var(--gold);padding:.75rem 1rem;background:var(--bg);border-radius:0 10px 10px 0;color:var(--mute);font-size:.88rem;margin:1rem 0}
+@media(prefers-reduced-motion:reduce){.photo-card img{transition:none}}
+
+
+/* Program details modal */
+.program-details-trigger{cursor:pointer;border:1px solid var(--brand2);background:transparent;color:var(--brand2);font:inherit}
+.program-details-trigger:hover{background:var(--brand2);color:#fff}
+.program-modal-backdrop{position:fixed;inset:0;z-index:9999;background:rgba(8,15,35,.68);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease}
+.program-modal-backdrop.open{opacity:1;visibility:visible}
+.program-modal{width:min(680px,100%);max-height:min(88vh,760px);overflow:auto;background:var(--surface,#fff);color:var(--text,#172033);border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,.3);transform:translateY(18px) scale(.98);transition:transform .22s ease;position:relative}
+.program-modal-backdrop.open .program-modal{transform:translateY(0) scale(1)}
+.program-modal-hero{height:190px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand2))}
+.program-modal-hero img{width:100%;height:100%;object-fit:cover}
+.program-modal-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,15,35,.72),transparent 65%)}
+.program-modal-hero-label{position:absolute;z-index:1;bottom:1rem;left:1.25rem;color:white;font-weight:700}
+.program-modal-close{position:absolute;z-index:2;right:12px;top:12px;border:0;border-radius:50%;width:40px;height:40px;background:rgba(255,255,255,.92);color:#182033;font-size:1.4rem;cursor:pointer}
+.program-modal-content{padding:1.35rem}
+.program-modal-content h2{margin:.45rem 0 .6rem;font-size:clamp(1.35rem,4vw,2rem);line-height:1.2}
+.program-modal-meta{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0}
+.program-modal-meta span{border-radius:999px;padding:.48rem .72rem;background:var(--soft,#f1f4f8);font-size:.88rem}
+.program-modal-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.25rem}
+body.modal-open{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.program-modal-backdrop,.program-modal{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="alert" id="alert" role="region" aria-label="Announcement"><div class="wrap"><p style="margin:0">Applications for <b>Skill-UP I | M9 Highway Campus</b> are LIVE! <a href="https://iqra.edu.pk/turn-your-skills-into-opportunities-with-skillup-freelance-excellence-program-batch-i-m9-highway-campus/">Click to Apply or Learn More</a></p><button aria-label="Dismiss announcement" onclick="document.getElementById('alert').remove()">✕</button></div></div>
+
+<div class="util"><div class="wrap">
+<nav aria-label="Quick links" style="display:contents">
+<span class="menuwrap" id="portalwrap" style="position:relative"><button aria-expanded="false" aria-controls="portal">Portal ▾</button>
+<span id="portal" class="hide" style="position:absolute;z-index:60;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.4rem .8rem;min-width:190px;top:100%;left:0;box-shadow:0 10px 24px rgba(0,0,0,.15)">
+<a style="display:block" href="https://app.iqra.edu.pk/web/login">Iqra App</a><a style="display:block" href="https://lms.iqra.edu.pk/">Iqra LMS</a><a style="display:block" href="https://alumni.iqra.edu.pk/#/Home">Alumni Portal</a><a style="display:block" href="https://convocation.iqra.edu.pk/">Convocation Portal</a></span></span>
+<a href="https://iqra.edu.pk/iu-information-hub/">Information Hub</a><a href="https://iqra.edu.pk/office-of-registrar/">Office Of The Registrar</a><a href="https://iqra.edu.pk/admission-hub/">Admission</a><a href="https://iqra.edu.pk/help-center/">Help Center</a>
+<a href="https://iqra.edu.pk/convocation-2025/">Convocation 2025</a></nav>
+<span class="sp"><button id="theme" aria-label="Toggle dark mode">🌓 Theme</button></span>
+</div></div>
+
+<header class="top"><div class="wrap">
+<a class="logo" href="https://iqra.edu.pk" aria-label="Iqra University home"><span class="m" aria-hidden="true">IU</span><span>Iqra University<small>TOP RANKED UNIVERSITY</small></span></a>
+<button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu" id="burger">☰</button>
+<nav aria-label="Main"><ul id="menu"></ul></nav>
+</div></header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1"><div class="wrap">
+<div class="grid"><div>
+<span class="pill">Admission Open Fall 2026</span>
+<h1 id="h1">Ranked Among Pakistan’s Top Universities</h1>
+<p class="lead">Join Pakistan’s leading institution where innovation meets education. Discover programs designed for tomorrow’s challenges.</p>
+<div class="cta"><a class="btn btn-gold" href="https://admissions.iqra.edu.pk/">Apply Now – Start Your Journey →</a><a class="btn btn-line" href="#finder">Find My Best Program</a></div></div>
+<div class="trio" id="trio"></div></div>
+<div class="stats"><div><b>50K+</b>Graduates</div><div><b>08</b>Campuses</div><div><b>40+</b>Programs</div></div>
+</div></section>
+
+<section id="finder" aria-labelledby="fh"><div class="wrap">
+<span class="eyebrow">Programs</span><h2 id="fh">Find Your Perfect Program</h2>
+<p class="sub">Discover the program that aligns with your career goals and interests. Use our interactive finder to explore over 100+ programs across various fields.</p>
+<div class="finder-tools">
+<div class="finder-search"><label for="fsearch">Search programs</label><div class="search-wrap"><span aria-hidden="true">⌕</span><input id="fsearch" type="search" placeholder="Try software, law, psychology…" autocomplete="off"></div></div>
+<div class="filters">
+<div><label for="fd">Degree level</label><select id="fd"><option value="">All degrees</option></select></div>
+<div><label for="fp">Department</label><select id="fp"><option value="">All departments</option></select></div>
+<div><label for="fc">Campus</label><select id="fc"><option value="">All campuses</option></select></div>
+<div><label for="fsort">Sort results</label><select id="fsort"><option value="featured">Featured</option><option value="az">Name: A–Z</option><option value="za">Name: Z–A</option></select></div>
+</div>
+<div class="quick-filters" aria-label="Popular study areas"><span>Explore:</span><button type="button" data-topic="all" aria-pressed="true">All programs</button><button type="button" data-topic="business">Business</button><button type="button" data-topic="technology">Technology</button><button type="button" data-topic="media">Media &amp; Design</button><button type="button" data-topic="law">Law</button><button type="button" data-topic="psychology">Psychology</button></div>
+<div class="finder-status"><p id="count" role="status" aria-live="polite">Showing programs</p><button type="button" id="clearFinder" class="clear-filters">Clear filters ↺</button></div>
+</div>
+<div class="cards" id="progs"></div>
+<div class="advisor"><div><h3>Not sure which program is right for you? Let us guide you!</h3><p>Our advisors will help you choose a program that matches your strengths.</p></div>
+<a class="btn btn-gold" href="https://api.whatsapp.com/send/?phone=923314772111&amp;text=Hi+%2AIqra+University%2A%21+I+need+more+info+about+Iqra+University+https%3A%2F%2Fiqra.edu.pk%2F&amp;type=phone_number&amp;app_absent=0">💬 Speak with an Advisor on WhatsApp</a></div>
+</div></section>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Why Choose IU?</strong><small style="display:block;color:var(--mute);font-weight:400">Explore university advantages</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section class="band" aria-labelledby="wh"><div class="wrap">
+<span class="eyebrow">Why Iqra</span><h2 id="wh">Why Choose IU?</h2>
+<p class="sub">We’re not just an educational institution – we’re a launchpad for your future. Here’s what sets us apart in the landscape of higher education.</p>
+<div class="cards" id="why"></div></div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Recognized Excellence</strong><small style="display:block;color:var(--mute);font-weight:400">Rankings and recognition</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section aria-labelledby="rk"><div class="wrap">
+<span class="eyebrow">Rankings</span><h2 id="rk">Recognized Excellence</h2>
+<div class="cards">
+<article class="card rank lift"><h3>Times Higher Education World University Rankings</h3><b>801–1000</b><p>Among 801-1000 top universities of the World<br>Ranked 10th in Pakistan</p></article>
+<article class="card rank lift"><h3>Times Higher Education Impact Rankings</h3><b>601–800</b><p>Ranked 601-800 in the World<br>Ranked 18th in Pakistan</p></article>
+<article class="card rank lift"><h3>UI GreenMetric</h3><b>276th</b><p>Ranked 276th in the World<br>Ranked 7th in Pakistan</p></article></div></div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Prompt Engineering Specialization</strong><small style="display:block;color:var(--mute);font-weight:400">Featured program</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section style="padding-top:0"><div class="wrap"><div class="promo">
+<span class="pill">Offering New Program</span>
+<h2 style="margin-top:1rem">Prompt Engineering Specialization</h2>
+<p>Become a Prompt Engineering Expert. Master prompt engineering patterns, techniques, and approaches to effectively leverage Generative AI</p>
+<p><b>Classes start on 27th August 2025</b> | Main Campus</p>
+<div class="row"><a class="btn btn-gold" href="https://admissions.iqra.edu.pk/">Apply Now – Start Your Journey</a><a class="btn btn-line" href="#finder">Find My Best Program</a></div>
+<p style="margin:1.2rem 0 0">Over <b>1,500 students</b> have already enrolled! Don’t miss your chance — secure your seat today and join one of Pakistan’s top-ranked universities</p>
+</div></div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Iqra University by the Numbers</strong><small style="display:block;color:var(--mute);font-weight:400">University facts and figures</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section class="band" aria-labelledby="nb"><div class="wrap">
+<h2 id="nb">Iqra University by the Numbers</h2>
+<p class="sub">Three decades of educational excellence reflected in our achievements, growth, and the success of our diverse community.</p>
+<div class="nums">
+<div><b>25+ years</b>Educational Legacy</div><div><b>50,000+</b>Alumni Worldwide</div><div><b>1000+</b>Entrepreneurial Mindsets</div></div>
+<div class="nums" id="figures" aria-label="Key figures (values to be confirmed)"></div>
+</div></section></div></div>
+</div>
+
+<section id="campuses" aria-labelledby="ch"><div class="wrap">
+<span class="eyebrow">Campuses</span><h2 id="ch">Explore Our Campuses</h2>
+<p class="sub">Discover world-class facilities across Pakistan. Each campus offers unique advantages while maintaining our standard of academic excellence.</p>
+<div class="chips" id="chips" role="group" aria-label="Filter campuses by city"></div>
+<div class="cx"><article class="feat" id="feat" aria-live="polite"></article><div class="clist" id="clist" aria-label="Campuses"></div></div>
+<div class="card" style="margin-top:1.5rem;text-align:center"><h3>Take a Virtual Tour of Iqra University</h3><p>Explore every corner of our campuses all from your screen!</p><a class="btn btn-brand" href="#campuses">Start Virtual Tour</a></div>
+</div></section>
+
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Student Life at IU</strong><small style="display:block;color:var(--mute);font-weight:400">Societies, events, and student activities</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section class="band" aria-labelledby="sl"><div class="wrap">
+<span class="eyebrow">Student Life</span><h2 id="sl">Student Life at IU</h2>
+<p class="sub">Beyond academics, discover a vibrant community where friendships flourish, talents shine, and lifelong memories are created.</p>
+<div class="cards">
+<article class="card lift"><div class="ico" aria-hidden="true">🎓</div><h3>Academic Societies</h3><p>Department-specific societies organizing workshops, seminars, and networking events</p></article>
+<article class="card lift"><div class="ico" aria-hidden="true">⚽</div><h3>Sports &amp; Recreation</h3><p>Diverse community of learners from across Pakistan and beyond</p></article>
+<article class="card lift"><div class="ico" aria-hidden="true">🎭</div><h3>Cultural Events</h3><p>Diverse community of learners from across Pakistan and beyond</p></article>
+<article class="card lift"><div class="ico" aria-hidden="true">🤝</div><h3>Student Societies</h3><p>Diverse community of learners from across Pakistan and beyond</p></article></div>
+
+<h3 style="margin-top:2.5rem">Our Vibrant Community</h3>
+<p class="sub">Student Societies · Annual Events · Sports Teams · Days of Activities</p>
+<div class="row"><a class="btn btn-brand" href="https://iqra.edu.pk/life-at-iu/">Experience Student Life at IU</a><a class="btn btn-line" href="https://iqra.edu.pk/iu-societies/" style="color:var(--ink)">Societies</a></div>
+</div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Alumni Stories</strong><small style="display:block;color:var(--mute);font-weight:400">Experiences and career journeys</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section aria-labelledby="al"><div class="wrap">
+<span class="eyebrow">Alumni</span><h2 id="al">What Our Alumni Say About Us</h2>
+<p class="sub">Real stories from our students and alumni who are making their mark in industries across Pakistan and beyond.</p>
+<div class="cards" id="alum"></div></div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>News & Updates</strong><small style="display:block;color:var(--mute);font-weight:400">Latest university news</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section class="band" aria-labelledby="nw"><div class="wrap">
+<span class="eyebrow">News</span><h2 id="nw">What’s Happening at IU</h2>
+<p class="sub">Stay updated with the latest news, events, and achievements from our vibrant university community.</p>
+<div class="cards news" id="news"></div>
+<div class="row"><a class="btn btn-brand" href="https://iqra.edu.pk/iu-information-hub/">See All →</a><a class="btn btn-line" style="color:var(--ink)" href="https://www.youtube.com/channel/UCeu0uTN42AVuVsVvCNizBxw">▶ See What’s Happening at IU – Watch Now!</a></div>
+</div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Quick Access Links</strong><small style="display:block;color:var(--mute);font-weight:400">Common services and resources</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section aria-labelledby="qa"><div class="wrap">
+<h2 id="qa">Quick Access Links</h2>
+<p class="sub">Everything you need at your fingertips. Access important services, resources, and information quickly and easily.</p>
+<div class="cards quick" id="quick"></div></div></section></div></div>
+</div>
+
+<div class="compact-section reveal">
+<button class="compact-toggle" type="button" aria-expanded="false">
+<span><strong>Help & Support</strong><small style="display:block;color:var(--mute);font-weight:400">Contact information and support</small></span><span class="chev" aria-hidden="true">⌄</span>
+</button>
+<div class="accordion-panel"><div><section class="help" aria-labelledby="hp"><div class="wrap">
+<h2 id="hp">Need Help? We’re Here for You</h2>
+<div class="cards">
+<div class="card"><div class="ico" aria-hidden="true">📞</div><h3>Call Center</h3><p>+92-21-111-11-IQRA<br>24/7 Support Available</p></div>
+<div class="card"><div class="ico" aria-hidden="true">✉️</div><h3>Email Support</h3><p><a href="mailto:info@iqra.edu.pk">info@iqra.edu.pk</a><br>Response within 24 hours</p></div>
+<div class="card"><div class="ico" aria-hidden="true">📍</div><h3>Visit Us</h3><p>view google map<br>@ Main Campus - Karachi</p></div>
+<div class="card"><div class="ico" aria-hidden="true">🤖</div><h3>AI Chatbot Support</h3><p><a href="mailto:info@iqra.edu.pk">your smart assistant</a><br>Available 24/7 on our Website</p></div></div>
+</div></section></div></div>
+</div>
+
+<section class="final" aria-labelledby="fn"><div class="wrap">
+<h2 id="fn">Ready to Join Iqra University?</h2>
+<p class="sub" style="margin-inline:auto">Take the first step towards an exceptional education that will transform your career and shape your future. Join thousands of successful graduates who started their journey right here.</p>
+<p><a class="btn btn-brand" href="https://admissions.iqra.edu.pk/">Apply Now – Start Your Journey →</a></p>
+<p class="sub" style="margin-inline:auto">Don’t just dream about your future — build it with us. Our admissions team is ready to guide you through every step of your journey.</p>
+<h3 style="margin-top:2.5rem">Stay Connected with Iqra University</h3>
+<p class="sub" style="margin-inline:auto">Get the latest updates on admissions, events, and opportunities delivered straight to your inbox.</p>
+<form id="nl" novalidate><div><label for="em">Email</label><input id="em" type="email" autocomplete="email" required placeholder="you@example.com"></div><button class="btn btn-gold" style="align-self:flex-end" type="submit">Subscribe</button></form>
+<p id="nlmsg" role="status" aria-live="polite" class="sub" style="margin:.8rem auto 0"></p>
+</div></section>
+</main>
+
+<footer><div class="wrap"><div class="g">
+<div><h2>IQRA UNIVERSITY</h2><p><b>Top Ranked University</b></p><p>For over three decades, Iqra University has been at the forefront of higher education in Pakistan, nurturing talented minds and creating leaders who shape the future.</p>
+<a href="tel:(021)111264264">(021) 111 264 264</a><span>Iqra University Main Campus, Defence View</span><a href="mailto:info@iqra.edu.pk">info@iqra.edu.pk</a><a href="mailto:verify@iqra.edu.pk">verify@iqra.edu.pk (for transcript / degree verification)</a><span>Mon to Sat 9:00 AM - 9:00 PM</span></div>
+<div><h2>Student Services</h2><a href="https://alumni.iqra.edu.pk/">Alumni</a><a href="https://iqra.edu.pk/information-resource-center-irc/">Information Resource Center (IRC)</a><a href="https://iqra.edu.pk/placement-services/">Placement Services</a><a href="https://iqra.edu.pk/iu-societies/">Societies</a><a href="https://iqra.edu.pk/contact-us/">Contact Us</a></div>
+<div><h2>Quick Access</h2><a href="https://tas.iqra.edu.pk/">Apply for Degree/Transcripts</a><a href="https://iqra.edu.pk/degree-verification/">Degree Verification</a><a href="https://iqra.edu.pk/transcript-verification/">Transcript Verification</a><a href="https://iqra.edu.pk/academic-calendar/">Academic Calendar</a><a href="https://iqra.edu.pk/iu-policies/">Policies</a></div></div>
+<div class="soc"><a href="https://www.facebook.com/IUMainCampus/">Facebook</a><a href="https://www.instagram.com/iqra_university/">Instagram</a><a href="https://www.linkedin.com/school/iqra-university-official/mycompany/">LinkedIn</a><a href="https://twitter.com/IqraUniOfficial">X (Twitter)</a><a href="https://www.youtube.com/channel/UCeu0uTN42AVuVsVvCNizBxw">YouTube</a></div>
+<p style="margin:1.5rem 0 0">© 2026 Iqra University. All rights reserved.</p></div></footer>
+
+<script>
+const $=s=>document.querySelector(s),E=s=>s.replace(/&/g,'&amp;');
+const nav=[["Explore IU",[["About IU","about-iu/"],["Why Choose IU","why-choose-iu/"],["Board Of Governors","about-iu/iu-bog/"],["IU Management","about-iu/iu-management/"],["Faculty Members","faculty-members/"],["Life at IU","life-at-iu/"]]],
+["Academics","academics-hub/"],
+["Student Services",[["Alumni","https://alumni.iqra.edu.pk/"],["Information Resource Center (IRC)","information-resource-center-irc/"],["Placement Services","placement-services/"],["Societies","iu-societies/"]]],
+["Campuses",[["Main Campus","campus/main-campus/"],["Gulshan Campus","campus/gulshan-campus/"],["North Campus","campus/north-campus/"],["M-9 Campus","campus/m9-campus/"],["Hyderabad Campus","campus/hyderabad-campus/"],["Airport Campus","campus/airport-campus/"],["Islamabad Campus","campus/islamabad-campus/"],["Chak Shahzad Campus","campus/chak-shahzad-campus/"]]],
+["Excellence & Engagement",[["IU CPLE","iu-cple/"],["Global Engagement","global-engagement/"],["IU Skill-Up","iu-core/skill-up/"],["Quality Enhancement Cell (QEC)","qec/"]]],
+["Research & Development",[["IU Journals","https://journals.iqra.edu.pk/"],["IU ORIC","oric/"],["IU CORE","iu-core/"]]]];
+const U=h=>h.startsWith('http')?h:'https://iqra.edu.pk/'+h;
+$('#menu').innerHTML=nav.map(([t,x])=>typeof x==='string'?`<li><a href="${U(x)}">${E(t)}</a></li>`:`<li><button aria-expanded="false">${E(t)}</button><ul>${x.map(([a,h])=>`<li><a href="${U(h)}">${E(a)}</a></li>`).join('')}</ul></li>`).join('');
+const closeAll=()=>document.querySelectorAll('#menu li.open').forEach(l=>{l.classList.remove('open');l.firstChild.setAttribute('aria-expanded','false')});
+$('#menu').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const li=b.parentNode,o=li.classList.contains('open');closeAll();if(!o){li.classList.add('open');b.setAttribute('aria-expanded','true')}});
+document.addEventListener('click',e=>{if(!e.target.closest('#menu'))closeAll()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();$('#portal').classList.add('hide')}});
+$('#burger').onclick=e=>{const s=$('#menu').classList.toggle('show');e.currentTarget.setAttribute('aria-expanded',s)};
+$('#portalwrap button').onclick=e=>{const p=$('#portal'),h=p.classList.toggle('hide');e.currentTarget.setAttribute('aria-expanded',!h)};
+try{const t=localStorage.getItem('iu-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+$('#theme').onclick=()=>{const d=document.documentElement,dark=getComputedStyle(d).colorScheme==='dark',n=dark?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('iu-theme',n)}catch(e){}};
+
+const P=[["Bachelor of Software Engineering","Department of Software Engineering","North Campus","Under Graduate Program","bachelor-of-software-engineering/"],
+["Bachelor of Laws","Department of Law","Main campus","Under Graduate Program","bachelor-of-laws/"],
+["Associate Degree in Animation","Department of Media Sciences","Main campus","Associate Degree Program","associate-degree-in-animation/"],
+["Master of Science in Entrepreneurship & Innovation","Department of Business Administration","Main campus","Post Graduate Program","master-of-science-in-entrepreneurship-innovation/"],
+["Associate Degree in Psychology","Department of Psychology","","Associate Degree Program","associate-degree-in-psychology/"],
+["Bachelors of Science in Software Engineering","Department of Software Engineering","","Under Graduate Program","bachelors-of-science-in-software-engineering/"],
+["Bachelors of English","Department of English","","Under Graduate Program","bachelors-of-english/"],
+["Bachelors of Media Studies","Department of Media Sciences","","Under Graduate Program","bachelors-of-media-studies/"]];
+const D=["Associate Degree Program","Diploma","Graduate Program","Post Graduate Program","Under Graduate Program"],
+DP=["Allied Health Sciences","Business Administration","Computer Science","Education","Electrical & Computer Engineering","English","Fashion & Design","Hospitality & Management","Human Nutrition & Dietetics","Law","Media Sciences","Nursing","Pharmacy","Physical Therapy","Psychology","Software Engineering"].map(x=>"Department of "+x),
+CP=["Airport Campus","Chak Shehzad Campus","Gulshan campus","Hyderabad Campus","Islamabad Campus","M9 Campus","Main campus","North Campus"];
+const fill=(id,a)=>$(id).insertAdjacentHTML('beforeend',a.map(x=>`<option>${E(x)}</option>`).join(''));
+fill('#fd',D);fill('#fp',DP);fill('#fc',CP);
+let activeTopic='all';
+function draw(){const d=$('#fd').value,p=$('#fp').value,c=$('#fc').value,q=$('#fsearch').value.trim().toLowerCase(),sort=$('#fsort').value;
+let r=P.filter(x=>(!d||x[3]===d)&&(!p||x[1]===p)&&(!c||!x[2]||x[2].toLowerCase()===c.toLowerCase())&&(!q||x.slice(0,4).join(' ').toLowerCase().includes(q)));
+const topicMap={business:['business administration','entrepreneurship'],technology:['software engineering','computer science','engineering'],media:['media sciences','animation','english','fashion'],law:['law'],psychology:['psychology']};
+if(activeTopic!=='all')r=r.filter(x=>topicMap[activeTopic]?.some(k=>(x[0]+' '+x[1]).toLowerCase().includes(k)));
+if(sort==='az')r.sort((a,b)=>a[0].localeCompare(b[0]));if(sort==='za')r.sort((a,b)=>b[0].localeCompare(a[0]));
+$('#progs').innerHTML=r.length?r.map(x=>{const dept=(x[1]||'').toLowerCase(),name=(x[0]||'').toLowerCase(),fieldText=dept+' '+name;let field='general';if(/business|entrepreneur|management|finance|account/.test(fieldText))field='business';else if(/software|computer|engineering|technology/.test(fieldText))field='technology';else if(/media|animation|design|fashion|english/.test(fieldText))field='media';else if(/law/.test(fieldText))field='law';else if(/psychology/.test(fieldText))field='psychology';else if(/health|nursing|pharmacy|nutrition|physical therapy/.test(fieldText))field='health';else if(/education/.test(fieldText))field='education';const visuals={business:{img:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',label:'Business & Management',icon:'💼'},technology:{img:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',label:'Technology & Engineering',icon:'💻'},media:{img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80',label:'Media & Creative Arts',icon:'🎨'},law:{img:'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80',label:'Law & Justice',icon:'⚖️'},psychology:{img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80',label:'Psychology & Social Sciences',icon:'🧠'},health:{img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',label:'Health & Medical Sciences',icon:'🩺'},education:{img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80',label:'Education',icon:'📚'},general:{img:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',label:'Explore Your Future',icon:'🎓'}};const v=visuals[field];return `<article class="card lift program-card field-${field}"><div class="program-visual"><img src="${v.img}" alt="${v.label}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,var(--brand),var(--brand2))'"><span class="visual-icon" aria-hidden="true">${v.icon}</span><span class="visual-label">${v.label}</span></div><span class="tag">${E(x[3].replace(' Program',''))}</span><h3>${E(x[0])}</h3><p style="color:var(--mute);margin-bottom:.4rem">${E(x[1])}</p><div class="program-meta">${x[2]?`<span>📍 ${E(x[2])}</span>`:''}<span>🎓 ${E(x[3].replace(' Program',''))}</span></div><div class="row"><a class="btn btn-brand" href="https://admissions.iqra.edu.pk">Apply Now</a><button type="button" class="btn btn-line program-details-trigger" data-program="${E(x[0])}" data-department="${E(x[1])}" data-campus="${E(x[2]||'')}" data-degree="${E(x[3].replace(' Program',''))}" data-slug="${E(x[4])}" data-field="${field}" data-image="${v.img}" data-field-label="${E(v.label)}">Program Details<span class="sr"> about ${E(x[0])}</span></button></div></article>`}).join(''):`<div class="program-empty"><div class="ico" aria-hidden="true">🔎</div><h3>No matching programs found</h3><p>Try another keyword or remove one of your filters to see more programs.</p><button type="button" id="emptyReset">Reset search &amp; filters</button></div>`;
+$('#count').textContent=`Showing ${r.length} of ${P.length} programs`;
+const reset=$('#emptyReset');if(reset)reset.onclick=clearFinder;}
+function clearFinder(){['#fd','#fp','#fc','#fsort'].forEach(s=>$(s).value='');$('#fsearch').value='';activeTopic='all';document.querySelectorAll('.quick-filters button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.topic==='all'));draw();}
+['#fd','#fp','#fc','#fsort'].forEach(s=>$(s).onchange=draw);$('#fsearch').addEventListener('input',draw);$('#clearFinder').onclick=clearFinder;
+document.querySelectorAll('.quick-filters button').forEach(b=>b.onclick=()=>{activeTopic=b.dataset.topic;document.querySelectorAll('.quick-filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()});draw();
+
+$('#why').innerHTML=[["💻","Tech-Driven, IT-Enabled Education","IU blends traditional academic excellence with the future of learning. Through digital classrooms, virtual labs, and IT-integrated teaching, students gain real-world exposure to cutting-edge technologies that prepare them for tomorrow’s challenges."],
+["🎓","World-Class Faculty & Industry Experts","Our highly qualified faculty includes international researchers, industry leaders, and innovators who integrate digital learning methodologies and global best practices into teaching. They don’t just teach theory but they empower students to apply knowledge in real-world scenarios."],
+["🌍","Global Partnerships","IU’s collaborations with international universities for various exchange programs, and research initiatives ensure that our students remain globally competitive. With degrees recognized worldwide, your education at IU opens doors across continents."],
+["🧭","Student-Centric Approach","Your journey at IU is built around you. From smart classrooms and e-learning platforms to personalized mentorship and career counseling, every resource is designed to ensure your success."],
+["💡","Innovation in Action","Step into IU’s IT-enabled innovation labs, where creativity merges with technology. Students collaborate on real-world projects, startups, and research that push the boundaries of entrepreneurship and problem-solving."],
+["💼","Career Excellence","With a considerably high employability rate, IU graduates are thriving in top national and multinational organizations. Our Career Services and Placement Support departments give students a competitive edge in the professional market."]]
+.map(([i,t,d])=>`<article class="card lift"><div class="ico" aria-hidden="true">${i}</div><h3>${E(t)}</h3><p style="color:var(--mute);margin:0">${E(d)}</p></article>`).join('');
+
+$('#figures').innerHTML=[["Students Enrolled","Join a thriving community of learners shaping the future together."],["Well-Qualified Faculty","Learn from accomplished educators, industry experts, and researchers who inspire success."],["Modern Campuses","Experience world-class, IT-enabled learning environments designed for innovation, collaboration, and growth."],["Academic Programs","Discover limitless opportunities with diverse programs tailored to your career goals."],["Global Partners","Expand your horizons through international collaborations, exchanges, and global exposure."],["Placement Rate","Step into the professional world with confidence — our graduates are job-ready and in demand"]]
+.map(([t,d])=>`<div><b aria-hidden="true">—</b><h3>${t}</h3><p style="font-size:.9rem;color:var(--mute);margin:0">${d}</p></div>`).join('');
+
+const CAMPS=[["Main Campus - Karachi","Shaheed-e-Millat Road, Phase 2 Defence View Housing Society, Karachi","Our flagship campus featuring cutting-edge facilities and comprehensive academic programs.","main-campus"],
+["Gulshan Campus - Karachi","4B, Block 7 Gulshan-e-Iqbal, Karachi","Nestled in one of Karachi’s most densely populated areas, the Gulshan Campus caters to the educational needs of a large number of students.","gulshan-campus"],
+["North Campus - Karachi","Plot No 204-205, Sector 7B/1 North Karachi Town, Karachi","Featuring a dedicated campus building, the North Campus boasts multiple facilities to enhance the learning experience of students.","north-campus"],
+["Airport Campus - Karachi","Gulshan E Amna Faisal Cantonment, Karachi","Our Airport Campus is a modern and well-equipped facility that offers an optimal environment for students’ learning and professional growth.","airport-campus"],
+["Hyderabad Campus","Plot A-26, Off Main Autobahn Road, Hyderabad","At Iqra University Hyderabad Campus, our mission is simple yet powerful: to provide quality education that empowers minds and shapes futures.","hyderabad-campus"],
+["M9 Campus","Sector 8B Scheme-33, Deh Songal Tappu Gujro, East Karachi","The M-9 Campus is a purpose-built, 13-story educational facility designed to provide state-of-the-art resources for students.","m9-campus"],
+["Islamabad Campus","Islamabad Campus, No.5, Sector H-9, Islamabad","Located in the capital city of Pakistan, our Islamabad Campus offers students a vibrant and thriving campus life.","islamabad-campus"],
+["Chak Shahzad Campus","PIES Complex No 6, Park Road, Chak Shahzad, Tarlai Kalan, Islamabad","Immersed in Islamabad’s lush greenery, our Chak Shahzad Campus is a seven-story marvel of modern design.","chak-shehzad-campus"]];
+const CITY=c=>/Hyderabad/.test(c[0])?'Hyderabad':/Islamabad|Chak/.test(c[0])?'Islamabad':'Karachi';
+const FL={"m9-campus":13,"chak-shehzad-campus":7,"main-campus":8,"gulshan-campus":5,"north-campus":6,"airport-campus":5,"hyderabad-campus":5,"islamabad-campus":6};
+const bld=n=>{const h=n*14,y=210-h;let w='';for(let i=0;i<n;i++)for(let j=0;j<4;j++)w+=`<rect x="${74+j*18}" y="${y+6+i*14}" width="10" height="7" rx="1" fill="#f2b705" opacity="${(i+j)%3?.9:.35}"/>`;return `<svg viewBox="0 0 220 220" aria-hidden="true"><rect y="210" width="220" height="10" fill="rgba(255,255,255,.25)"/><rect x="26" y="150" width="34" height="60" rx="3" fill="#dfe8ff" opacity=".5"/><rect x="160" y="126" width="34" height="84" rx="3" fill="#dfe8ff" opacity=".5"/><rect x="68" y="${y}" width="84" height="${h}" rx="4" fill="#fff"/>${w}</svg>`};
+let city='All',cur=CAMPS[0][3];
+const showC=()=>{const L=CAMPS.filter(c=>city==='All'||CITY(c)===city);if(!L.some(c=>c[3]===cur))cur=L[0][3];
+$('#clist').innerHTML=L.map(c=>`<button data-s="${c[3]}" aria-current="${c[3]===cur}"><span><b>${c[0]}</b><small>${CITY(c)}</small></span></button>`).join('');
+const c=CAMPS.find(x=>x[3]===cur);
+$('#feat').innerHTML=`<div class="art"><div class="crest" aria-hidden="true">🎓</div></div><div class="in"><span class="tag">${CITY(c)}</span><h3 style="font-size:1.6rem">${c[0]}</h3><p style="color:var(--mute);font-size:.93rem">📍 ${c[1]}</p><p>${c[2]}</p><div class="row"><a class="btn btn-brand" href="https://iqra.edu.pk/campus/${c[3]}/">Learn More<span class="sr"> about ${c[0]}</span></a><a class="btn btn-line" style="color:var(--brand2)" href="#campuses">Virtual Tour</a><a class="btn btn-line" style="color:var(--brand2)" href="mailto:admissions@iqra.edu.pk">Book a Campus Tour</a></div></div>`};
+$('#chips').innerHTML=['All','Karachi','Hyderabad','Islamabad'].map(x=>`<button aria-pressed="${x==='All'}">${x}</button>`).join('');
+$('#chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;city=b.textContent;[...$('#chips').children].forEach(x=>x.setAttribute('aria-pressed',x===b));showC()};
+$('#clist').onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.s;showC();$('#clist [data-s="'+cur+'"]').focus()};
+showC();
+
+$('#alum').innerHTML=[["Hamza Tabani","Chairman, Tabani Group of Companies","As the Chairman of Tabani Group, I often reflect on my journey and the significant role my education played in shaping my career. I graduated in 2001 with a degree…","hamza-tabani"],
+["Mahwish Saad Khan","CFO, PayFast","Iqra University has played a pivotal role in shaping the professional I am today. Pursuing my MBA as a regular evening student while managing a full-time job was challenging,…","mahwish-saad"],
+["Sadia Riaz","C-Level HR Professional","My time at Iqra University was instrumental in laying the foundation for my successful career in HR. The faculty provided not just theoretical knowledge, but practical insights and…","sadia-riaz"],
+["Salman Hafeez","CEO, AEG Consulting","Iqra University was a significant launchpad for my career. The university’s unique blend of academic rigor and real-world exposure equipped me with the skills needed…","salman-hafiz"],
+["Zahid Iqbal","COO EBM","As the Chief Operating Officer at EBM, I am committed to pushing boundaries, fostering resilience, and ensuring operational excellence. Leading EBM’s transformation…","zahid-iqbal"]]
+.map(([n,r,q,s])=>`<figure class="card lift" style="margin:0"><blockquote>“${q}”</blockquote><figcaption class="who"><span class="av" aria-hidden="true">${n.split(' ').map(w=>w[0]).slice(0,2).join('')}</span><span><b>${n}</b><small>${r}</small></span></figcaption><p style="margin:1rem 0 0"><a href="https://iqra.edu.pk/alumni/#${s}">Alumni Success: read more<span class="sr"> from ${n}</span></a></p></figure>`).join('');
+$('#alum').insertAdjacentHTML('afterend','<p class="photo-credit-note">Alumni portraits are not shown yet; initials are used to avoid assigning stock photos to real alumni. Use official portraits from the alumni pages when approved.</p>');
+
+$('#news').innerHTML=[["IU ORIC Facilitates Industry Exposure through Faculty Industry Placement Program – Phase 5.0","November 2026","iu-oric-facilitates-industry-exposure-through-faculty-industry-placement-program-phase-5-0/","ORIC conducted Phase 5.0 of the Faculty Industry Placement Program, extending faculty engagement with healthcare, banking, and manufacturing organizations."],
+["Public Defence of Iqra University’s Ph.D. Scholar Ms. Zoya Farooq Bhamani will be held on Saturday November 28, 2026","November 2026","public-defence-of-iqra-universitys-ph-d-scholar-ms-zoya-farooq-bhamani-will-be-held-on-saturday-november-28-2026/","Faculty of Education, Iqra University’s PhD public defence open to scholars, faculty members, and students of the same field."],
+["Public Defense of Iqra University’s Ph.D. Scholar Mr. Shameer Khokar will be held on Saturday, November 21, 2026","November 2026","public-defense-of-iqra-universitys-ph-d/","Held at the Gulshan Campus on Saturday, November 21, 2026, at 10:00 a.m."],
+["Electrical Safety Awareness Session by K-Electric","November 2026","electrical-safety-awareness-session-by-k-electric/","ORIC, in collaboration with K-Electric, organized a session on electrical safety, responsible energy use, and workplace safety culture."],
+["Iqra University Hosts Five-Day National Capacity Building Training on Open and Distance Learning (ODL)","December 2025","iqra-university-hosts-five-day-national-capacity-building-training-on-open-and-distance-learning-odl/","Held December 1 to 5, 2025, with HEC officials as chief guests."],
+["Iqra University Unveils Its Premium Law School in Pakistan","December 2025","iqra-university-unveils-its-premium-law-school-in-pakistan/","Iqra Law School inducts its first LLB batch, the Class of 2029."],
+["Iqra University Hosts Rwanda High Commission for Academic Talks","November 2025","iqra-university-hosts-rwanda-high-commission-for-academic-talks/","A delegation led by Her Excellency Harerimana Fatou visited the Main Campus on November 27, 2025."],
+["Iqra University Signs MoU with Spectrum International University College","August 2025","iqra-university-signs-mou-with-spectrum-international-university-college/","MoU signed with Spectrum International University College, Malaysia, on August 29, 2025."],
+["Iqra University Hyderabad Campus Celebrates First Anniversary: The First of Many","October 2026","iqra-university-hyderabad-campus-celebrates-first-anniversary-the-first-of-many/","Celebrated on October 26, 2026 under the theme “The First of Many.”"],
+["Iqra University Launches Nationwide Islamic Investment Competition to Empower Women","October 2026","iqra-university-launches-nationwide-islamic-investment-competition-to-empower-women/","“Empowered Women, Ethical Investments” launched October 22, 2026 by IU CEIF with ZLK Islamic Financial Services."],
+["Turn Your Skills into Opportunities with SkillUp – Freelance Excellence Program Batch I | M9","October 2026","turn-your-skills-into-opportunities-with-skillup-freelance-excellence-program-batch-i-m9-highway-campus/","IU CORE presents an 8-week program to equip you with practical, future-ready skills for the digital economy."],
+["From Strategy to Scale: Turning Business Ideas into Market-Ready Ventures","October 2026","from-strategy-to-scale-turning-business-ideas-into-market-ready-ventures/","IU CORE session on go-to-market strategy, launch execution, and scaling."]]
+.map(([t,d,s,x])=>`<article class="card lift"><time>${d}</time><h3 style="margin-top:.3rem"><a href="https://iqra.edu.pk/${s}">${E(t)}</a></h3><p style="color:var(--mute);margin:0;font-size:.93rem">${E(x)}</p></article>`).join('');
+
+$('#quick').innerHTML=[["🎓","Student Portal","Access your academic records, grades, and course materials","https://iulms.edu.pk/login/index.php"],
+["💼","Career Services","Explore job opportunities and career guidance","mailto:placemnet@iqra.edu.pk"],
+["📄","Transcripts","Request official transcripts and certificates","https://tas.iqra.edu.pk/"],
+["🤝","Alumni Network","Connect with graduates and expand your network","https://alumni.iqra.edu.pk/"],
+["❓","FAQs","Find answers to commonly asked questions","https://iqra.edu.pk/help-center/"],
+["📚","Knowledge Base","Connect with graduates and expand your network","https://iqra.edu.pk/help-center/"]]
+.map(([i,t,d,h])=>`<a class="card lift" href="${h}"><div class="ico" aria-hidden="true">${i}</div><h3>${t}</h3><p style="color:var(--mute);margin:0">${d}</p></a>`).join('');
+
+/* Student images: illustrated by default. To use real photos, put a URL or data: URI per slot, e.g. PHOTOS.hero1='https://…' */
+// These are illustrative stock images, not verified Iqra University photos.
+const stu=(s,h,c,bg,l,k)=>`<svg viewBox="0 0 200 240" role="img" aria-label="${l}"><rect width="200" height="240" fill="${bg}"/><circle cx="100" cy="95" r="38" fill="${s}"/><path d="M60 92c0-34 24-52 44-50 24 2 38 22 36 50-10-18-24-26-42-26s-30 8-38 26z" fill="${h}"/><path d="M30 240c0-52 30-80 70-80s70 28 70 80z" fill="${c}"/><circle cx="87" cy="98" r="3.5" fill="#222"/><circle cx="113" cy="98" r="3.5" fill="#222"/><path d="M89 114q11 9 22 0" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="118" y="178" width="46" height="34" rx="5" fill="#f2b705" transform="rotate(-8 140 195)"/></svg>`;
+$('#trio').innerHTML=[['#e0ac84','#2b1b12','#2f5fd0','#dfe8ff','Smiling Iqra University student with books','hero1'],['#f1c9a5','#1a1a1a','#10265f','#fff3cc','Smiling Iqra University student holding a notebook','hero2'],['#c68b62','#3a2414','#0b8a6a','#d9f5ec','Smiling Iqra University student with a laptop bag','hero3']].map(a=>`<figure>${stu(...a)}</figure>`).join('');
+$('#nl').onsubmit=e=>{e.preventDefault();const v=$('#em').value.trim();$('#nlmsg').textContent=/^\S+@\S+\.\S+$/.test(v)?'Thank you! You’re on the list.':'Please enter a valid email address.'};
+
+/* Interactive compact sections */
+document.querySelectorAll('.compact-toggle').forEach((btn)=>{
+  btn.addEventListener('click',()=>{
+    const panel=btn.nextElementSibling;
+    const open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    panel.classList.toggle('open',!open);
+  });
+});
+/* Motion reveal: gracefully disabled for reduced-motion users */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const revealTargets=document.querySelectorAll('.compact-section,.card,.feat');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('reveal');observer.unobserve(entry.target)}
+    });
+  },{threshold:.08});
+  revealTargets.forEach(el=>observer.observe(el));
+}
+/* close dropdowns on outside click and keyboard; focus-friendly */
+document.querySelectorAll('#menu>li>button').forEach(btn=>{
+  btn.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){
+      e.preventDefault();
+      const first=btn.nextElementSibling?.querySelector('a');
+      if(first) first.focus();
+    }
+  });
+});
+
+</script>
+
+<div class="program-modal-backdrop" id="programModal" aria-hidden="true">
+  <section class="program-modal" role="dialog" aria-modal="true" aria-labelledby="programModalTitle">
+    <button type="button" class="program-modal-close" id="programModalClose" aria-label="Close program details">&times;</button>
+    <div class="program-modal-hero"><img id="programModalImage" alt=""/><span class="program-modal-hero-label" id="programModalField"></span></div>
+    <div class="program-modal-content">
+      <span class="tag" id="programModalDegree"></span>
+      <h2 id="programModalTitle"></h2>
+      <p id="programModalIntro" style="color:var(--mute)"></p>
+      <div class="program-modal-meta" id="programModalMeta"></div>
+      <p style="font-size:.9rem;color:var(--mute)">For curriculum, admission requirements, and the latest program information, please consult the official program page.</p>
+      <div class="program-modal-actions"><a class="btn btn-brand" href="https://admissions.iqra.edu.pk" target="_blank" rel="noopener">Apply Now</a><a class="btn btn-line" id="programOfficialLink" target="_blank" rel="noopener">Official Program Page</a></div>
+    </div>
+  </section>
+</div>
+<script>
+(()=>{const modal=document.getElementById('programModal'),close=document.getElementById('programModalClose'),img=document.getElementById('programModalImage');let previousFocus=null;
+const open=(btn)=>{previousFocus=document.activeElement;const d=btn.dataset;document.getElementById('programModalTitle').textContent=d.program||'Program Details';document.getElementById('programModalDegree').textContent=d.degree||'Program';document.getElementById('programModalField').textContent=d.fieldLabel||'Explore Your Future';document.getElementById('programModalIntro').textContent=`Explore ${d.program||'this program'} at Iqra University. Review the program information below and visit the official page for detailed curriculum and admission information.`;document.getElementById('programModalMeta').innerHTML=[d.department?`<span>🏛️ ${d.department}</span>`:'',d.campus?`<span>📍 ${d.campus}</span>`:'',d.degree?`<span>🎓 ${d.degree}</span>`:''].filter(Boolean).join('');img.src=d.image||'';img.alt=d.fieldLabel||'';document.getElementById('programOfficialLink').href='https://iqra.edu.pk/programs/'+encodeURIComponent(d.slug||'');modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');close.focus();};
+const shut=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(previousFocus&&previousFocus.focus)previousFocus.focus();};
+document.addEventListener('click',e=>{const btn=e.target.closest('.program-details-trigger');if(btn){open(btn);return;}if(e.target===modal||e.target.closest('#programModalClose'))shut();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))shut();});
+})();
+</script>
+</body>
+</html>
